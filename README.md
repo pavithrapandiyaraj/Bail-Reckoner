@@ -1,4 +1,4 @@
-# “Justice delayed is justice denied. Bail Reckoner aims to assist timely justice.”
+**“Justice delayed is justice denied. Bail Reckoner aims to assist timely justice.”**
 # ⚖️ Bail Reckoner
 
 **Bail Reckoner** is a law-tech web platform built using Django to streamline the bail application process. It is designed to help legal professionals, judicial authorities, and individuals understand bail eligibility and generate bail recommendations based on legal parameters. The project incorporates user management, legal logic, and admin control, providing an accessible and user-friendly interface.
