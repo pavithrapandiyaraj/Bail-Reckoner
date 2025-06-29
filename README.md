@@ -69,11 +69,12 @@ Bail Reckoner simplifies the judicial workflow with:
 This project is licensed under the MIT License.
 
 ### 📞 Contact
+
 **Author :** Pavithra Pandiyaraj
+
 **LinkedIn :** www.linkedin.com/in/pavithra-p-38769721b
+
 **Email :** pavithrapandiaraj20@gmail.com
-
-
 
 
 
