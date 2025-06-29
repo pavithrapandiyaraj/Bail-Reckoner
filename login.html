@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Bail Reckoner</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background-color: #1f1f1f;
+            padding: 60px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 30px;
+            font-size: 3em;
+            color: #ffffff;
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .form-image {
+            max-width: 400px;
+            width: 100%;
+            border-radius: 10px;
+            margin-right: 40px;
+        }
+
+        form {
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            text-align: left;
+        }
+
+        input[type="text"], input[type="password"] {
+            padding: 15px;
+            margin-bottom: 25px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #2c2c2c;
+            color: #e0e0e0;
+            font-size: 1.2em;
+        }
+
+        button {
+            padding: 20px;
+            background-color: #444;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.4em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        #login-message {
+            color: green;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .signup-link {
+            margin-top: 25px;
+        }
+
+        a {
+            color: #4aa7ff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <div class="form-container">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvCOzlysgnnYbruKF8b-SPvTUQF9vmyibpBQ&s" alt="Login" class="form-image">
+            <form id="loginForm">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+        <div id="login-message" style="display: none;"></div>
+        <p><a href="forget.html">Forgot your password?</a></p>
+        <p class="signup-link">
+            Don't have an account? <a href="signup.html">Sign up here</a>
+        </p>        
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Assuming simple validation for demonstration purposes
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // You can add your authentication logic here
+            if (email && password) {
+                // Redirect to the dashboard page
+                window.location.href = 'dashboard.html'; // Changed to redirect to dashboard.html
+            } else {
+                const message = document.getElementById('login-message');
+                message.textContent = "Please enter valid credentials.";
+                message.style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>

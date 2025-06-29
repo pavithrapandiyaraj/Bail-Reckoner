@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Bail Application</title>
+    <style>
+        /* Ensure the entire body is covered with the background image */
+        body {
+            background-image: url('https://www.livelaw.in/cms/wp-content/uploads/2014/08/Indian-Jails.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #fff;
+        }
+
+        /* Optional: Adjust the container for better visibility */
+        .container {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1, h2 {
+            color: #fff;
+        }
+
+        h4 {
+            color: #ccc;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+
+        input[type="radio"], input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        section {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button[type="button"] {
+            background-color: #6c757d;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>New Bail Application</h1>
+        
+        <!-- Offense Details -->
+        <form id="bailApplicationForm">
+            <section id="offenseDetails">
+                <h4>Offense Details</h4>
+                <label for="charges">Charges:</label>
+                <select id="charges" name="charges">
+                    <option value="theft">Theft</option>
+                    <option value="assault">Assault</option>
+                    <option value="fraud">Fraud</option>
+                    <option value="drugPossession">Drug Possession</option>
+                    <option value="drugTrafficking">Drug Trafficking</option>
+                    <option value="burglary">Burglary</option>
+                    <option value="robbery">Robbery</option>
+                    <option value="embezzlement">Embezzlement</option>
+                    <option value="dui">DUI (Driving Under the Influence)</option>
+                    <option value="domesticViolence">Domestic Violence</option>
+                    <option value="murder">Murder</option>
+                    <option value="manslaughter">Manslaughter</option>
+                    <option value="kidnapping">Kidnapping</option>
+                    <option value="sexualAssault">Sexual Assault</option>
+                    <option value="publicIntoxication">Public Intoxication</option>
+                    <option value="vandalism">Vandalism</option>
+                    <option value="arson">Arson</option>
+                    <option value="forgery">Forgery</option>
+                    <option value="cybercrime">Cybercrime</option>
+                    <option value="moneyLaundering">Money Laundering</option>
+                    <option value="terrorism">Terrorism-related Offenses</option>
+                    <option value="illegalFirearms">Illegal Possession of Firearms</option>
+                    <option value="humanTrafficking">Human Trafficking</option>
+                    <option value="extortion">Extortion</option>
+                    <option value="hateCrimes">Hate Crimes</option>
+                    <option value="obstruction">Obstruction of Justice</option>
+                    <option value="bribery">Bribery</option>
+                    <option value="perjury">Perjury</option>
+                    <option value="riot">Riot or Unlawful Assembly</option>
+                    <option value="childAbuse">Child Abuse or Neglect</option>
+                    <option value="trespassing">Trespassing</option>
+                    <option value="disorderlyConduct">Disorderly Conduct</option>
+                    <option value="shoplifting">Shoplifting</option>
+                    <option value="loitering">Loitering</option>
+                    <option value="trafficViolations">Traffic Violations (Serious)</option>
+                    <option value="publicNuisance">Public Nuisance</option>
+                    <option value="violatingRestrainingOrder">Violating a Restraining Order</option>
+                </select>
+                <label for="compoundable">Compoundable:</label>
+                <input type="radio" id="compoundableYes" name="compoundable" value="Yes"> Yes
+                <input type="radio" id="compoundableNo" name="compoundable" value="No"> No
+            </section>
+            
+            <!-- Defendant Information -->
+            <section id="defendantInfo">
+                <h4>Defendant Information</h4>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="previousOffenses">Previous Offenses:</label>
+                <select id="previousOffenses" name="previousOffenses">
+                    <option value="none">None</option>
+                    <option value="minor">Minor</option>
+                    <option value="moderate">Moderate</option>
+                    <option value="serious">Serious</option>
+                </select>
+                
+                <label for="imprisonmentStatus">Current Imprisonment Status:</label>
+                <input type="text" id="imprisonmentStatus" name="imprisonmentStatus">
+            </section>
+            
+            <!-- Legal Statutes and Parameters -->
+            <section id="legalStatutes">
+                <h4>Legal Statutes and Parameters</h4>
+                <p>Relevant Legal Statutes: <span id="statutes"></span></p>
+            </section>
+            
+            <!-- Judicial Discretion Inputs -->
+            <section id="judicialDiscretion">
+                <h4>Judicial Discretion Inputs</h4>
+                <label for="flightRisk">Flight Risk:</label>
+                <input type="checkbox" id="flightRisk" name="flightRisk"> 
+
+                <label for="communityTies">Community Ties:</label>
+                <input type="checkbox" id="communityTies" name="communityTies">
+            </section>
+
+            <!-- Procedural Pre-requisites -->
+            <section id="proceduralPrerequisites">
+                <h4>Procedural Pre-requisites</h4>
+                <label for="suretyBond">Surety Bond:</label>
+                <input type="text" id="suretyBond" name="suretyBond" placeholder="Enter amount or details" required>
+                
+                <label for="personalBond">Personal Bond:</label>
+                <input type="text" id="personalBond" name="personalBond" placeholder="Enter amount or details" required>
+                
+                <label for="fines">Fines:</label>
+                <input type="text" id="fines" name="fines" placeholder="Enter amount or details" required>
+            </section>
+
+            <section id="identityVerification">
+                <h2>Identity Verification</h2>
+                
+                <label for="govId">Government-issued ID Number:</label>
+                <input type="text" id="govId" name="govId" placeholder="Enter ID number" required>
+                
+                <label for="govIdType">Type of Government-issued ID:</label>
+                <select id="govIdType" name="govIdType" required>
+                    <option value="passport">Passport</option>
+                    <option value="driversLicense">Driver's License</option>
+                    <option value="nationalId">National ID Card</option>
+                </select>
+                
+                <label for="photo">Upload Photograph:</label>
+                <input type="file" id="photo" name="photo" accept=".jpg,.jpeg,.png" required>
+                
+                <label for="proofOfAddress">Upload Proof of Address:</label>
+                <input type="file" id="proofOfAddress" name="proofOfAddress" accept=".pdf,.jpg,.jpeg,.png" required>
+
+                <label for="firCopy">Upload Scanned FIR Copy:</label>
+                <input type="file" id="firCopy" name="firCopy" accept=".pdf,.jpg,.jpeg,.png" required>
+                
+                <label for="proofOfEmployment">Upload Proof of Employment/Income:</label>
+                <input type="file" id="proofOfEmployment" name="proofOfEmployment" accept=".pdf,.jpg,.jpeg,.png">
+                
+                <label for="fingerprinting">Fingerprinting (if required):</label>
+                <input type="file" id="fingerprinting" name="fingerprinting" accept=".pdf,.jpg,.jpeg,.png">
+            </section>
+            
+            <section id="documentSubmission">
+                <h2>Document Submission</h2>
+                
+                <label for="legalDocuments">Upload Legal Documents:</label>
+                <input type="file" id="legalDocuments" name="legalDocuments" accept=".pdf,.jpg,.jpeg,.png" multiple required>
+                
+                <label for="financialRecords">Upload Financial Records:</label>
+                <input type="file" id="financialRecords" name="financialRecords" accept=".pdf,.jpg,.jpeg,.png" multiple required>
+                
+                <label for="references">Upload Letters of Reference/Character References:</label>
+                <input type="file" id="references" name="references" accept=".pdf,.jpg,.jpeg,.png" multiple required>
+            </section>
+
+            <!-- Decision -->
+            <section id="decision">
+                <h2>Decision</h2>
+                
+                <label for="judgeName">Judge's Name:</label>
+                <input type="text" id="judgeName" name="judgeName" placeholder="Enter judge's name" required>
+                
+                <label for="court">Court:</label>
+                <input type="text" id="court" name="court" placeholder="Enter court name" required>
+                
+                <label for="courtDecision">Decision:</label>
+                <textarea id="courtDecision" name="courtDecision" placeholder="Enter court's decision" rows="4" required></textarea>
+            </section>
+            
+            <section id="review">
+                <h2>Review and Confirmation</h2>
+                <label for="confirmation">I hereby confirm that all the information provided is accurate and true to the best of my knowledge.</label>
+                <input type="checkbox" id="confirmation" name="confirmation" required>
+            </section>
+            
+            <section>
+                <button type="submit">Submit Bail Application</button>
+                <button type="button">Cancel</button>
+            </section>
+        </form>
+    </div>
+    <script>
+        document.getElementById('charges').addEventListener('change', function () {
+            var charges = this.value;
+            var statutesElement = document.getElementById('statutes');
+            var statutesText = '';
+
+            switch (charges) {
+                case 'theft':
+                    statutesText = 'IPC 378';
+                    break;
+                case 'assault':
+                    statutesText = 'IPC 351';
+                    break;
+                case 'fraud':
+                    statutesText = 'IPC 415';
+                    break;
+                case 'drugPossession':
+                    statutesText = 'NDPS Act 1985, Sec 8';
+                    break;
+                case 'drugTrafficking':
+                    statutesText = 'NDPS Act 1985, Sec 22';
+                    break;
+                case 'burglary':
+                    statutesText = 'IPC 441';
+                    break;
+                case 'robbery':
+                    statutesText = 'IPC 390';
+                    break;
+                case 'embezzlement':
+                    statutesText = 'IPC 403';
+                    break;
+                case 'dui':
+                    statutesText = 'Motor Vehicles Act 1988, Sec 185';
+                    break;
+                case 'domesticViolence':
+                    statutesText = 'Protection of Women from Domestic Violence Act 2005';
+                    break;
+                case 'murder':
+                    statutesText = 'IPC 302';
+                    break;
+                case 'manslaughter':
+                    statutesText = 'IPC 304';
+                    break;
+                case 'kidnapping':
+                    statutesText = 'IPC 359';
+                    break;
+                case 'sexualAssault':
+                    statutesText = 'IPC 375';
+                    break;
+                case 'publicIntoxication':
+                    statutesText = 'IPC 268';
+                    break;
+                case 'vandalism':
+                    statutesText = 'IPC 425';
+                    break;
+                case 'arson':
+                    statutesText = 'IPC 435';
+                    break;
+                case 'forgery':
+                    statutesText = 'IPC 463';
+                    break;
+                case 'cybercrime':
+                    statutesText = 'IT Act 2000';
+                    break;
+                case 'moneyLaundering':
+                    statutesText = 'Prevention of Money Laundering Act 2002';
+                    break;
+                case 'terrorism':
+                    statutesText = 'UAPA 1967';
+                    break;
+                case 'illegalFirearms':
+                    statutesText = 'Arms Act 1959';
+                    break;
+                case 'humanTrafficking':
+                    statutesText = 'Immoral Traffic (Prevention) Act 1956';
+                    break;
+                case 'extortion':
+                    statutesText = 'IPC 383';
+                    break;
+                case 'hateCrimes':
+                    statutesText = 'IPC 153A';
+                    break;
+                case 'obstruction':
+                    statutesText = 'IPC 186';
+                    break;
+                case 'bribery':
+                    statutesText = 'Prevention of Corruption Act 1988';
+                    break;
+                case 'perjury':
+                    statutesText = 'IPC 191';
+                    break;
+                case 'riot':
+                    statutesText = 'IPC 146';
+                    break;
+                case 'childAbuse':
+                    statutesText = 'POCSO Act 2012';
+                    break;
+                case 'trespassing':
+                    statutesText = 'IPC 441';
+                    break;
+                case 'disorderlyConduct':
+                    statutesText = 'IPC 268';
+                    break;
+                case 'shoplifting':
+                    statutesText = 'IPC 379';
+                    break;
+                case 'loitering':
+                    statutesText = 'IPC 268';
+                    break;
+                case 'trafficViolations':
+                    statutesText = 'Motor Vehicles Act 1988';
+                    break;
+                case 'publicNuisance':
+                    statutesText = 'IPC 268';
+                    break;
+                case 'violatingRestrainingOrder':
+                    statutesText = 'Contempt of Courts Act 1971';
+                    break;
+                default:
+                    statutesText = '';
+            }
+
+            statutesElement.textContent = statutesText;
+        });
+    </script>
+</body>
+</html>

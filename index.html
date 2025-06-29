@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bail Reckoner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #121212; /* Dark background */
+            color: #e0e0e0; /* Light text color */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            background-color: #1f1f1f; /* Dark grey background for the form container */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+            padding: 30px; /* Padding around the form */
+        }
+
+        h2 {
+            margin-bottom: 20px; /* Space below the heading */
+            color: #ffffff; /* White color for the heading */
+        }
+
+        .form-label {
+            font-weight: 600; /* Bold labels */
+            color: #ffffff; /* White color for labels */
+        }
+
+        .form-control {
+            background-color: #2c2c2c; /* Darker input background */
+            border: 1px solid #444; /* Dark border color */
+            color: #ffffff; /* White text color */
+            border-radius: 4px; /* Slightly rounded corners */
+        }
+
+        .form-control::placeholder {
+            color: #a0a0a0; /* Lighter placeholder text */
+        }
+
+        .btn-primary {
+            background-color: #007bff; /* Primary color for the button */
+            border-color: #007bff; /* Match button border with its background */
+            padding: 10px 20px; /* Padding around the button text */
+            border-radius: 4px; /* Rounded corners for the button */
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+            border-color: #004085; /* Darker border on hover */
+        }
+
+        #result {
+            font-size: 1.2em; /* Larger font size for result text */
+            color: #28a745; /* Success color for results */
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Bail Reckoner</h2>
+        <form id="predictionForm">
+            <div class="mb-3">
+                <label for="year" class="form-label">Year (0=2021, 1=2022, 2=2023):</label>
+                <input type="number" class="form-control" id="year" placeholder="Enter year" required>
+            </div>
+            <div class="mb-3">
+                <label for="period_of_detention" class="form-label">Period of Detention (in days):</label>
+                <input type="number" class="form-control" id="period_of_detention" placeholder="Enter days" required>
+            </div>
+            <div class="mb-3">
+                <label for="male" class="form-label">Is Male (0=No, 1=Yes):</label>
+                <input type="number" class="form-control" id="male" placeholder="0 or 1" required>
+            </div>
+            <div class="mb-3">
+                <label for="female" class="form-label">Is Female (0=No, 1=Yes):</label>
+                <input type="number" class="form-control" id="female" placeholder="0 or 1" required>
+            </div>
+            <div class="mb-3">
+                <label for="total" class="form-label">Total Prisoners:</label>
+                <input type="number" class="form-control" id="total" placeholder="Enter total prisoners" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
+        <div id="result" class="mt-3"></div>
+    </div>
+
+    <script>
+        document.getElementById('predictionForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const year = document.getElementById('year').value;
+            const period_of_detention = document.getElementById('period_of_detention').value;
+            const male = document.getElementById('male').value;
+            const female = document.getElementById('female').value;
+            const total = document.getElementById('total').value;
+
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ year, period_of_detention, male, female, total })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').innerHTML = `<strong>Result: ${data.result}</strong>`;
+            });
+        });
+    </script>
+</body>
+</html>

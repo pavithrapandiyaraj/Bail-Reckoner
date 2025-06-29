@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Bail Application</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>New Bail Application</h1>
+        
+        <!-- Offense Details -->
+        <form id="bailApplicationForm">
+            <section id="offenseDetails">
+                <h2>Offense Details</h2>
+                <label for="charges">Charges:</label>
+                <select id="charges" name="charges">
+                    <option value="theft">Theft</option>
+                    <option value="assault">Assault</option>
+                    <option value="fraud">Fraud</option>
+                    <!-- Add more options as needed -->
+                </select>
+                <label for="compoundable">Compoundable:</label>
+                <input type="radio" id="compoundableYes" name="compoundable" value="Yes"> Yes
+                <input type="radio" id="compoundableNo" name="compoundable" value="No"> No
+            </section>
+            
+            <!-- Defendant Information -->
+            <section id="defendantInfo">
+                <h2>Defendant Information</h2>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="previousOffenses">Previous Offenses:</label>
+                <textarea id="previousOffenses" name="previousOffenses"></textarea>
+                
+                <label for="imprisonmentStatus">Current Imprisonment Status:</label>
+                <input type="text" id="imprisonmentStatus" name="imprisonmentStatus">
+            </section>
+            
+            <!-- Legal Statutes and Parameters -->
+            <section id="legalStatutes">
+                <h2>Legal Statutes and Parameters</h2>
+                <p>Relevant Legal Statutes: <span id="statutes">[Auto-populated based on charges]</span></p>
+            </section>
+            
+            <!-- Judicial Discretion Inputs -->
+            <section id="judicialDiscretion">
+                <h2>Judicial Discretion Inputs</h2>
+                <label for="flightRisk">Flight Risk:</label>
+                <input type="checkbox" id="flightRisk" name="flightRisk"> 
+
+                <label for="communityTies">Community Ties:</label>
+                <input type="checkbox" id="communityTies" name="communityTies">
+                <!-- Add more judicial discretion inputs as necessary -->
+            </section>
+            
+            <!-- Review & Submit -->
+            <section id="reviewSubmit">
+                <button type="button" onclick="reviewApplication()">Review Application</button>
+                <button type="submit">Submit Application</button>
+            </section>
+        </form>
+    </div>
+
+    <script src="form.js"></script>
+</body>
+</html>

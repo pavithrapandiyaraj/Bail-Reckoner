@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="dash.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <h1>Welcome, <span id="userName">User</span></h1>
+            <div class="notifications">
+                <h2>Notifications</h2>
+                <ul id="notificationList">
+                    <!-- Notifications will be dynamically populated -->
+                </ul>
+            </div>
+        </header>
+
+        <section class="summary-section">
+            <h2>Ongoing Cases</h2>
+            <ul id="casesList">
+                <!-- Ongoing cases will be dynamically populated -->
+            </ul>
+        </section>
+
+        <section class="quick-links">
+            <h2>Quick Links</h2>
+            <div class="links">
+                <a href="form.html" class="link-button">Start New Bail Application</a>
+                <a href="legal-database.html" class="link-button">View Legal Database</a>
+            </div>
+        </section>
+    </div>
+
+    <script src="dash.js"></script>
+    <script>
+        // Example of setting the user name dynamically
+        const userName = "John Doe"; // Replace with actual user data
+        document.getElementById('userName').innerText = userName;
+    </script>
+</body>
+</html>

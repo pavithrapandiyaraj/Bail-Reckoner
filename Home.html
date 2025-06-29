@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bail Reckoner</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensures the body takes full height */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: #1f1f1f;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #333;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            padding: 12px 20px;
+            font-size: 1.1em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #333;
+            border-radius: 5px;
+            color: #ffffff;
+        }
+
+        .logo img {
+            width: 150px;
+        }
+
+        .hero {
+            position: relative;
+            text-align: center;
+            padding: 160px 20px; /* Increased padding for a larger hero section */
+            margin-bottom: 40px;
+            color: white; /* White font color */
+            text-shadow: 
+                -1px -1px 0 #000,  
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000; /* Black border around text */
+            flex: 1; /* Allow hero section to grow and take remaining space */
+        }
+
+        .carousel {
+            width: 100%;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-images img {
+            width: 100%;
+            height: auto;
+            flex-shrink: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 5em; /* Increased font size for the hero title */
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 2em; /* Increased font size for the hero description */
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            background-color: #444;
+            color: #ffffff;
+            padding: 20px 40px; /* Increased padding for a larger button */
+            text-decoration: none;
+            font-size: 1.5em; /* Increased font size for the button text */
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #555;
+        }
+
+        footer {
+            background-color: #1f1f1f;
+            color: #e0e0e0;
+            text-align: center;
+            padding: 20px;
+            border-top: 2px solid #333;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="signup.html">Sign Up</a></li>
+        </ul>
+        <div class="logo">
+            <img src="https://st.depositphotos.com/46079520/55076/v/450/depositphotos_550764526-stock-illustration-frx-letter-logo-design-white.jpg" alt="Bail Reckoner Logo">
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="carousel">
+            <div class="carousel-images">
+                <img src="Bail1.jpg" alt="Image 1">
+            </div>
+        </div>
+
+        <div class="hero-content">
+            <h1>Welcome to Bail Reckoner</h1>
+            <p>Streamline the bail process with ease and accuracy.</p>
+            <a href="index.html" class="cta-button">Get Started</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Bail Reckoner. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const carouselImages = document.querySelector('.carousel-images');
+        const images = document.querySelectorAll('.carousel-images img');
+        let index = 0;
+
+        function showImage(index) {
+            const offset = -index * 100;
+            carouselImages.style.transform = `translateX(${offset}%)`;
+        }
+
+        setInterval(() => {
+            index = (index < images.length - 1) ? index + 1 : 0;
+            showImage(index);
+        }, 5000); // Slide every 5 seconds
+    </script>
+</body>
+</html>

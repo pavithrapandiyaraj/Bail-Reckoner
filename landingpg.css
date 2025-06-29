@@ -1,0 +1,136 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Header Styles */
+.main-header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px 0;
+}
+
+.main-header h1 {
+    margin: 0;
+    font-size: 36px;
+    text-align: center;
+}
+
+.main-header nav {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.main-header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.main-header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.auth-buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.auth-buttons .button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: white;
+    color: #4CAF50;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.auth-buttons .button:hover {
+    background-color: #45a049;
+}
+
+.auth-buttons .button-signup {
+    background-color: #fff;
+    color: #4CAF50;
+}
+
+/* Carousel Section */
+.carousel-section {
+    margin: 40px 0;
+}
+
+.carousel-caption h5 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.carousel-caption p {
+    font-size: 16px;
+}
+
+/* Overview Section */
+.overview {
+    background-color: #fff;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.overview h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.overview p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.button-start {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.button-start:hover {
+    background-color: #45a049;
+}
+
+/* Footer Styles */
+.main-footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+.main-footer p {
+    margin: 0;
+    font-size: 14px;
+}
