@@ -35,3 +35,55 @@ Bail Reckoner simplifies the judicial workflow with:
 
 ## 📂 Project Structure
 
+bail_reckoner/
+├── bailapp/
+│ ├── templates/
+│ ├── static/
+│ ├── models.py
+│ ├── views.py
+│ ├── urls.py
+│ └── ...
+├── media/
+├── db.sqlite3
+├── manage.py
+└── ...
+
+
+## 🎯 Screenshots
+
+### 🏠 Home Page
+
+![Home](https://github.com/user-attachments/assets/legal-theme-homepage.png)
+
+### 🔐 Login Page
+
+![Login](https://github.com/user-attachments/assets/legal-theme-login.png)
+
+### 📝 Signup Page
+
+![Signup](https://github.com/user-attachments/assets/legal-theme-signup.png)
+
+### 📄 Case Form Page
+
+![Case Form](https://github.com/user-attachments/assets/legal-theme-case-form.png)
+
+### 📊 Case Result Page
+
+![Result](https://github.com/user-attachments/assets/legal-theme-result.png)
+
+### 📧 Contact Form (Email Integrated)
+
+![Contact](https://github.com/user-attachments/assets/legal-theme-contact.png)
+
+
+## 📧 Email Configuration (Gmail SMTP)
+
+# settings.py
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'your-email@gmail.com'
+EMAIL_HOST_PASSWORD = 'your-app-password'
+
+
